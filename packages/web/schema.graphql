@@ -1,0 +1,71 @@
+type HealthOutput {
+  message: String
+}
+
+type Query {
+  healthCheck: HealthOutput
+  me: User
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  picture: String
+  createdAt: String!
+}
+
+type UpdateUserResponse {
+  user: User!
+  clientMutationId: String
+}
+
+input CreateUserInput {
+  name: String!
+  email: String!
+  password: String!
+  clientMutationId: String
+}
+
+input UpdateUserInput {
+  name: String
+  email: String
+  picture: String
+  clientMutationId: String
+}
+
+input LoginUserInput {
+  email: String!
+  password: String!
+  clientMutationId: String
+}
+
+input ResetPasswordInput {
+  email: String!
+  clientMutationId: String
+}
+
+input ValidateOTPResetPasswordInput {
+  otp: String!
+  password: String
+  clientMutationId: String
+}
+
+type AuthPayload {
+  token: String!
+  user: User!
+  clientMutationId: String
+}
+
+type MessageOutput {
+  message: String!
+  clientMutationId: String
+}
+
+type Mutation {
+  signUp(input: CreateUserInput!): AuthPayload
+  login(input: LoginUserInput!): AuthPayload
+  updateUser(input: UpdateUserInput!): UpdateUserResponse
+  recoverPassword(input: ResetPasswordInput): MessageOutput
+  validateOTPResetPassword(input: ValidateOTPResetPasswordInput): MessageOutput
+}

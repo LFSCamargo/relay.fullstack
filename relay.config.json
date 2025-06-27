@@ -1,0 +1,6 @@
+{
+  "src": "./packages/web/src",
+  "schema": "./packages/web/src/schema.graphql",
+  "language": "typescript",
+  "eagerEsModules": true
+}

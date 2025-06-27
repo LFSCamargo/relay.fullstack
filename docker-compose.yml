@@ -1,0 +1,20 @@
+version: '3.0'
+services:
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    # This volume is used to initialize the two databases that we need test_db and app_db
+    # When placed at /docker-entrypoint-initdb.d, it will be executed when the container is first created
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+  mailhog:
+      image: mailhog/mailhog
+      container_name: 'mailhog'
+      ports:
+        - "1025:1025"
+        - "8025:8025"

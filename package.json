@@ -1,0 +1,42 @@
+{
+  "name": "relay.fullstack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "pnpm": {
+    "shamefullyHoist": true
+  },
+  "scripts": {
+    "web:test": "pnpm --filter web test:coverage",
+    "web:build": "pnpm --filter web build",
+    "web:preview": "pnpm --filter web preview",
+    "web:dev": "pnpm --filter web dev",
+    "web:relay": "pnpm --filter web relay",
+    "web:relay:watch": "pnpm --filter web relay:watch",
+    "web:check-types": "pnpm --filter web check-types",
+    "api:test": "pnpm --filter api test",
+    "api:build": "pnpm --filter api build",
+    "api:dev": "pnpm --filter api run:dev",
+    "api:db:migrate:up": "pnpm --filter api db:migrate:up",
+    "api:db:migrate:down": "pnpm --filter api db:migrate:down",
+    "api:db:migrate:redo": "pnpm --filter api db:migrate:redo",
+    "api:check-types": "pnpm --filter api check-types",
+    "api:generate-schema": "pnpm --filter api generate-schema",
+    "mailing:dev": "pnpm --filter mailing dev",
+    "mailing:export": "pnpm --filter mailing export",
+    "mailing:build": "pnpm --filter mailing compile",
+    "lint": "eslint --ext .ts,.tsx,.js,.jsx ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.25.0",
+    "eslint": "^9.25.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "eslint-plugin-relay": "^2.0.0",
+    "globals": "^16.1.0",
+    "typescript-eslint": "^8.30.1"
+  }
+}
